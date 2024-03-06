@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 $main-color: #6f00ff;
+$main-hover-color: #430099;
+$main-bg: #f8f3ff;
+$main-border: 2px solid #f2ebff;
+$secondary-bg: #e9dbff;
+$secondary-border: 1px solid #d2b8ff;
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -10,4 +15,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.main {
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 20px;
 }
