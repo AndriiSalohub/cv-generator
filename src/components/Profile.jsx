@@ -1,9 +1,20 @@
+import { useState } from "react";
 import "../styles/Profile.scss";
 
 const Profile = () => {
+  const [profileImage, setProfileImage] = useState(null);
+
+  const handleChange = (e) => {
+    setProfileImage(URL.createObjectURL(e.target.files[0]));
+  };
+
   return (
     <section className="profile">
-      <div className="profile__image-placeholder"></div>
+      {profileImage ? (
+        <img alt="" className="profile__image" src={profileImage} />
+      ) : (
+        <div className="profile__image-placeholder"></div>
+      )}
       <div className="profile__image-info">
         <h2 className="profile__image-title">Profile Picture</h2>
         <p className="profile__image-description">
@@ -27,9 +38,9 @@ const Profile = () => {
           </span>{" "}
           good luck!
         </p>
-        <div className="profile__image-choice">
-          <button className="profile__image-choose-btn">Choose file</button>
-        </div>
+        <form className="profile__image-choice" encType="multipart/form-data">
+          <input type="file" onChange={(e) => handleChange(e)} />
+        </form>
       </div>
     </section>
   );
