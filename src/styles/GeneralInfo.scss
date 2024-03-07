@@ -1,0 +1,55 @@
+@import "./styles.scss";
+
+.general-info {
+  margin-top: 50px;
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 25px;
+    display: inline;
+
+    &-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: $main-color;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 800;
+      margin-right: 15px;
+      border-radius: 50%;
+      position: relative;
+
+      &::before {
+        content: "";
+        background-color: $main-color;
+        height: 1px;
+        position: absolute;
+        right: 0;
+        transform: translateX(100%);
+        width: 8px;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 768px) {
+  .general-info__header {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
