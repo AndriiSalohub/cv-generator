@@ -22,17 +22,7 @@
       width: 175px;
     }
 
-    &-title {
-      font-weight: 800;
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-
     &-description {
-      font-size: 14px;
-      margin-bottom: 10px;
-      line-height: 1.2;
-
       & span {
         font-weight: 700;
       }
@@ -89,10 +79,6 @@ input[type="file"]::file-selector-button {
     &__image {
       &-placeholder {
         margin-bottom: 15px;
-      }
-
-      &-title {
-        font-size: 20px;
       }
     }
   }

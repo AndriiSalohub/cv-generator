@@ -22,3 +22,21 @@ body {
   margin: 25px auto;
   padding: 20px;
 }
+
+.title {
+  font-weight: 800;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+}
