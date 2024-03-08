@@ -47,6 +47,16 @@
     display: flex;
     flex-direction: column;
 
+    &-container {
+      & div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     &-label {
       cursor: pointer;
       font-weight: 700;
@@ -63,24 +73,10 @@
   }
 
   &__full-name {
-    & div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
   }
 
   &__contacts {
-    & div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 0px 30px;
   }
 }

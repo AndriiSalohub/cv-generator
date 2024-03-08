@@ -16,7 +16,7 @@ const GeneralInfo = () => {
         </p>
       </header>
       <fomr className="general-info__form">
-        <div className="general-info__full-name">
+        <div className="general-info__full-name general-info__form-container">
           <div>
             {" "}
             <label htmlFor="first name" className="general-info__form-label">
@@ -62,7 +62,7 @@ const GeneralInfo = () => {
           placeholder="e.g. Atlanta Developer"
           className="general-info__form-input"
         />
-        <div className="general-info__contacts">
+        <div className="general-info__form-container general-info__contacts">
           <div>
             <label htmlFor="linkedIn" className="general-info__form-label">
               LinkedIn username
