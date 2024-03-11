@@ -1,20 +1,19 @@
 import "../styles/GeneralInfo.scss";
+import FormDescription from "./FormDescription";
 
 const GeneralInfo = () => {
   return (
     <section className="general-info">
-      <header className="general-info__header">
-        <div className="general-info__title-container">
-          <span className="general-info__title-number">1</span>
-          <h2 className="general-info__title title">General Information</h2>
-        </div>
-        <p className="general-info__description description">
-          This is a critical part of your CV as it gives the potential employer
-          a glimpse of who you are. This is an opportunity for you to introduce
-          yourself, highlight your skills, and provide a brief summary of your
-          career goals.
-        </p>
-      </header>
+      <FormDescription
+        titleNumber="1"
+        title="General Information"
+        description="This is a critical part of your CV as it gives the potential employer a
+        glimpse of who you are. This is an opportunity for you to introduce
+        yourself, highlight your skills, and provide a brief summary of your
+        career goals."
+        addMoreButton={false}
+        buttonText=""
+      />
       <fomr className="general-info__form">
         <div className="general-info__full-name general-info__form-container">
           <div>
