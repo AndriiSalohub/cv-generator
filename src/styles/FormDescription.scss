@@ -33,6 +33,32 @@
       }
     }
   }
+
+  &__add-btn {
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    grid-column: 2;
+    padding: 10px 20px;
+    background-color: $main-color;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+    width: 50%;
+    justify-self: end;
+  }
+}
+
+@media (hover: hover) {
+  .form-description__add-btn:hover {
+    background-color: $main-hover-color;
+  }
+}
+
+@media (hover: none) {
+  .form-description__add-btn:active {
+    background-color: $main-hover-color;
+  }
 }
 
 @media (max-width: 1024px) {

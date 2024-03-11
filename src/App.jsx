@@ -1,3 +1,4 @@
+import EducationInfo from "./components/EducationInfo";
 import Footer from "./components/Footer";
 import GeneralInfo from "./components/GeneralInfo";
 import Header from "./components/Header";
@@ -10,6 +11,7 @@ function App() {
       <main className="main">
         <Profile />
         <GeneralInfo />
+        <EducationInfo />
       </main>
       <Footer />
     </>
