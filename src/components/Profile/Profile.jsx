@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Profile.scss";
+import "./Profile.scss";
 
 const Profile = () => {
   const [profileImage, setProfileImage] = useState(null);

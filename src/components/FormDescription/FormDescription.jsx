@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "../styles/FormDescription.scss";
+import "./FormDescription.scss";
 
 const FormDescription = ({
   titleNumber,

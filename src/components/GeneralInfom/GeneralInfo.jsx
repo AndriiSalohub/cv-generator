@@ -1,5 +1,5 @@
-import "../styles/GeneralInfo.scss";
-import FormDescription from "./FormDescription";
+import "./GeneralInfo.scss";
+import FormDescription from "../FormDescription/FormDescription.jsx";
 
 const GeneralInfo = () => {
   return (
@@ -146,7 +146,7 @@ const GeneralInfo = () => {
           id="desctiption"
           rows="6"
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
-          className="general-info__form-input info-input"
+          className="general-info__form-input form-input"
         ></textarea>
       </fomr>
     </section>

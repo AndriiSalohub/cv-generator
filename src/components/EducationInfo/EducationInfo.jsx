@@ -1,5 +1,5 @@
-import "../styles/EducationInfo.scss";
-import FormDescription from "./FormDescription";
+import "./EducationInfo.scss";
+import FormDescription from "../FormDescription/FormDescription.jsx";
 
 const EducationInfo = () => {
   return (
