@@ -14,34 +14,43 @@ const GeneralInfo = () => {
         addMoreButton={false}
         buttonText=""
       />
-      <fomr className="general-info__form">
-        <div className="general-info__full-name general-info__form-container">
+      <fomr className="general-info__form form">
+        <div className="general-info__full-name form-container">
           <div>
             {" "}
-            <label htmlFor="first name" className="general-info__form-label">
+            <label
+              htmlFor="first name"
+              className="general-info__form-label form-label"
+            >
               First name
             </label>
             <input
               type="text"
               name="first name"
               id="first name"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
           <div>
             {" "}
-            <label htmlFor="last name" className="general-info__form-label">
+            <label
+              htmlFor="last name"
+              className="general-info__form-label form-label"
+            >
               Last name
             </label>
             <input
               type="text"
               name="last name"
               id="last name"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
         </div>
-        <label htmlFor="profession" className="general-info__form-label">
+        <label
+          htmlFor="profession"
+          className="general-info__form-label form-label"
+        >
           Profession
         </label>
         <input
@@ -49,9 +58,12 @@ const GeneralInfo = () => {
           name="profession"
           id="profession"
           placeholder="e.g. Web Developer"
-          className="general-info__form-input"
+          className="general-info__form-input form-input"
         />
-        <label htmlFor="location" className="general-info__form-label">
+        <label
+          htmlFor="location"
+          className="general-info__form-label form-label"
+        >
           City and Country:
         </label>
         <input
@@ -59,11 +71,14 @@ const GeneralInfo = () => {
           name="location"
           id="location"
           placeholder="e.g. Atlanta Developer"
-          className="general-info__form-input"
+          className="general-info__form-input form-input"
         />
-        <div className="general-info__form-container general-info__contacts">
+        <div className="general-info__contacts form-container">
           <div>
-            <label htmlFor="linkedIn" className="general-info__form-label">
+            <label
+              htmlFor="linkedIn"
+              className="general-info__form-label form-label"
+            >
               LinkedIn username
             </label>
             <input
@@ -71,11 +86,14 @@ const GeneralInfo = () => {
               name="linkedIn"
               id="linkedIn"
               placeholder="e.g. andriisalohub"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
           <div>
-            <label htmlFor="portfolio" className="general-info__form-label">
+            <label
+              htmlFor="portfolio"
+              className="general-info__form-label form-label"
+            >
               Portfolio URL
             </label>
             <input
@@ -83,11 +101,14 @@ const GeneralInfo = () => {
               name="portfolio"
               id="portfolio"
               placeholder="e.g. https://github.com/AndriiSalohub/"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
           <div>
-            <label htmlFor="email" className="general-info__form-label">
+            <label
+              htmlFor="email"
+              className="general-info__form-label form-label"
+            >
               Email
             </label>
             <input
@@ -95,11 +116,14 @@ const GeneralInfo = () => {
               name="email"
               id="email"
               placeholder="e.g. example@gmail.com"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
           <div>
-            <label htmlFor="phone number" className="general-info__form-label">
+            <label
+              htmlFor="phone number"
+              className="general-info__form-label form-label"
+            >
               Phone number
             </label>
             <input
@@ -107,11 +131,14 @@ const GeneralInfo = () => {
               name="phone number"
               id="phone number"
               placeholder="e.g. +38 067452 1334"
-              className="general-info__form-input"
+              className="general-info__form-input form-input"
             />
           </div>
         </div>
-        <label htmlFor="desctiption" className="general-info__form-label">
+        <label
+          htmlFor="desctiption"
+          className="general-info__form-label form-label"
+        >
           Desctiption(About me)
         </label>
         <textarea
@@ -119,7 +146,7 @@ const GeneralInfo = () => {
           id="desctiption"
           rows="6"
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
-          className="general-info__form-input"
+          className="general-info__form-input info-input"
         ></textarea>
       </fomr>
     </section>
