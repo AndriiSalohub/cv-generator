@@ -70,9 +70,16 @@
 }
 
 @media (max-width: 768px) {
-  .form-description__header {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+  .form-description {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    row-gap: 15px;
+
+    &__add-btn {
+      display: block;
+      margin: 0 auto;
+    }
   }
 
   .form-description__title-number {

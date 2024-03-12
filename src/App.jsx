@@ -3,6 +3,7 @@ import Footer from "./components/Footer/Footer";
 import GeneralInfo from "./components/GeneralInfom/GeneralInfo.jsx";
 import Header from "./components/Header/Header.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import WorkExperience from "./components/WorkExperience/WorkExperience.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Profile />
         <GeneralInfo />
         <EducationInfo />
+        <WorkExperience />
       </main>
       <Footer />
     </>
