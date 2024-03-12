@@ -41,8 +41,6 @@ body {
   border: $main-border;
   border-radius: 12px;
   padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
 
   &-label {
     cursor: pointer;

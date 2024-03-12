@@ -3,6 +3,11 @@
 .general-info {
   margin-top: 50px;
 
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__full-name {
     grid-gap: 40px;
   }

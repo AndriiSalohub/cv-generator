@@ -3,3 +3,14 @@
 .education {
   margin-top: 50px;
 }
+
+.education__form {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1px 30px;
+}
+
+.education__form div {
+  display: flex;
+  flex-direction: column;
+}
