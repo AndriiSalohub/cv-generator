@@ -16,3 +16,24 @@
     grid-gap: 1px 30px;
   }
 }
+
+@media (max-width: 768px) {
+  .general-info {
+    &__full-name {
+      grid-gap: 15px;
+    }
+
+    &__contacts {
+      grid-gap: 1px 10px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .general-info {
+    &__full-name {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
+  }
+}

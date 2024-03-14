@@ -103,6 +103,9 @@
     flex-direction: column;
 
     &__navigation {
+      &-item:last-child {
+        padding-right: 5px;
+      }
 
       &-item a,
       &-item button {

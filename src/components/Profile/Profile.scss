@@ -83,3 +83,13 @@ input[type="file"]::file-selector-button {
     }
   }
 }
+
+@media (max-width: 425px) {
+  .profile {
+    padding: 5px;
+
+    &__image-choice {
+      margin-bottom: 10px;
+    }
+  }
+}

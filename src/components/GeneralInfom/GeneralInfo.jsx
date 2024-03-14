@@ -14,7 +14,7 @@ const GeneralInfo = () => {
         addMoreButton={false}
         buttonText=""
       />
-      <fomr className="general-info__form form">
+      <form className="general-info__form form">
         <div className="general-info__full-name form-container">
           <div>
             {" "}
@@ -148,7 +148,7 @@ const GeneralInfo = () => {
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
           className="general-info__form-textarea form-input"
         ></textarea>
-      </fomr>
+      </form>
     </section>
   );
 };

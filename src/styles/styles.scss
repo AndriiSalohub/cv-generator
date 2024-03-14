@@ -40,7 +40,7 @@ body {
   background-color: $main-bg;
   border: $main-border;
   border-radius: 12px;
-  padding: 10px 20px;
+  padding: 20px;
 
   &-label {
     cursor: pointer;
@@ -68,7 +68,31 @@ body {
 }
 
 @media (max-width: 768px) {
+  .main {
+    padding: 5px;
+  }
+
+  .form {
+    padding: 5px;
+
+    &-label {
+      font-size: 12px;
+    }
+  }
+
   .title {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .form {
+    &-input {
+      width: 90%;
+    }
+
+    &-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
