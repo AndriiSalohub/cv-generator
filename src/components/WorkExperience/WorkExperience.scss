@@ -1,3 +1,35 @@
 .work-experience {
   margin-top: 50px;
+
+  &__form {
+    display: grid;
+    grid-gap: 1px 30px;
+    grid-template-columns: repeat(2, 1fr);
+
+    & div {
+      display: grid;
+      grid-auto-flow: row;
+    }
+
+    &-company {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+
+    &-textarea {
+      grid-column: 1/3;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .work-experience {
+    &__form {
+      grid-template-columns: 1fr;
+
+      &-textarea {
+        grid-column: 1/2;
+      }
+    }
+  }
 }

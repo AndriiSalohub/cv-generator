@@ -146,7 +146,7 @@ const GeneralInfo = () => {
           id="desctiption"
           rows="6"
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
-          className="general-info__form-input form-input"
+          className="general-info__form-textarea form-input"
         ></textarea>
       </fomr>
     </section>
