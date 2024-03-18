@@ -1,8 +1,19 @@
+import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Skills.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Skills = () => {
+  const [skills, setSkills] = useState([
+    { id: 1, skill: "JavaScript" },
+    { id: 2, skill: "Strong communication" },
+    { id: 3, skill: "Adaptability" },
+  ]);
+
+  const handleDeleteSkill = (skillId) => {
+    setSkills(skills.filter((skill) => skill.id !== skillId));
+  };
+
   return (
     <section className="skills">
       <FormDescription
@@ -13,36 +24,21 @@ const Skills = () => {
         buttonText="Add Skill"
       />
       <form action="" className="skills__form form">
-        <div>
-          <input
-            type="text"
-            className="skills__form-input form-input"
-            placeholder="e.g. JavaScript"
-          />
-          <button className="skills__form-delete-btn">
-            <RiDeleteBin5Line />
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            className="skills__form-input form-input"
-            placeholder="e.g. Strong communication"
-          />
-          <button className="skills__form-delete-btn">
-            <RiDeleteBin5Line />
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            className="skills__form-input form-input"
-            placeholder="e.g. Adaptability"
-          />
-          <button className="skills__form-delete-btn">
-            <RiDeleteBin5Line />
-          </button>
-        </div>
+        {skills.map((skill) => (
+          <div key={skill.id}>
+            <input
+              type="text"
+              className="skills__form-input form-input"
+              placeholder={`e.g. ${skill.skill}`}
+            />
+            <button
+              className="skills__form-delete-btn"
+              onClick={() => handleDeleteSkill(skill.id)}
+            >
+              <RiDeleteBin5Line />
+            </button>
+          </div>
+        ))}
       </form>
     </section>
   );
