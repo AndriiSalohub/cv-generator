@@ -1,5 +1,6 @@
 import FormDescription from "../FormDescription/FormDescription";
 import "./Skills.scss";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Skills = () => {
   return (
@@ -11,6 +12,38 @@ const Skills = () => {
         addMoreButton={true}
         buttonText="Add Skill"
       />
+      <form action="" className="skills__form form">
+        <div>
+          <input
+            type="text"
+            className="skills__form-input form-input"
+            placeholder="e.g. JavaScript"
+          />
+          <button className="skills__form-delete-btn">
+            <RiDeleteBin5Line />
+          </button>
+        </div>
+        <div>
+          <input
+            type="text"
+            className="skills__form-input form-input"
+            placeholder="e.g. Strong communication"
+          />
+          <button className="skills__form-delete-btn">
+            <RiDeleteBin5Line />
+          </button>
+        </div>
+        <div>
+          <input
+            type="text"
+            className="skills__form-input form-input"
+            placeholder="e.g. Adaptability"
+          />
+          <button className="skills__form-delete-btn">
+            <RiDeleteBin5Line />
+          </button>
+        </div>
+      </form>
     </section>
   );
 };
