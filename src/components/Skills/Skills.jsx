@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Skills.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
@@ -33,6 +33,12 @@ const Skills = () => {
     }
   };
 
+  useEffect(() => {
+    if (skills.length === 0) {
+      handleAddSkill();
+    }
+  }, [skills]);
+
   return (
     <section className="skills">
       <FormDescription
@@ -52,12 +58,14 @@ const Skills = () => {
               placeholder={skill.skill ? `e.g. ${skill.skill}` : "New skill..."}
               onKeyDown={(e) => handleKeyPress(e, skill.id)}
             />
-            <button
-              className="skills__form-delete-btn"
-              onClick={() => handleDeleteSkill(skill.id)}
-            >
-              <RiDeleteBin5Line />
-            </button>
+            {skills.length > 1 && (
+              <button
+                className="skills__form-delete-btn"
+                onClick={() => handleDeleteSkill(skill.id)}
+              >
+                <RiDeleteBin5Line />
+              </button>
+            )}
           </div>
         ))}
       </form>
