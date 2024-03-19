@@ -60,7 +60,7 @@ const Skills = () => {
             />
             {skills.length > 1 && (
               <button
-                className="skills__form-delete-btn"
+                className="skills__form-delete-btn delete-btn"
                 onClick={() => handleDeleteSkill(skill.id)}
               >
                 <RiDeleteBin5Line />

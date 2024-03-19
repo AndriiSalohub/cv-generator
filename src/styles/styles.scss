@@ -67,6 +67,34 @@ body {
   }
 }
 
+.delete-btn {
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: #bd0451;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (hover: hover) {
+  .delete-btn:hover {
+    background-color: #820338;
+  }
+}
+
+@media (hover: none) {
+  .delete-btn:active {
+    background-color: #820338;
+  }
+}
+
 @media (max-width: 768px) {
   .main {
     padding: 5px;
