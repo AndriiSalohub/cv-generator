@@ -7,6 +7,7 @@ const FormDescription = ({
   description,
   addMoreButton,
   buttonText,
+  handleClick,
 }) => {
   return (
     <header className="form-description">
@@ -16,7 +17,9 @@ const FormDescription = ({
       </div>
       <p className="form-description__description description">{description}</p>
       {addMoreButton && (
-        <button className="form-description__add-btn">{buttonText}</button>
+        <button className="form-description__add-btn" onClick={handleClick}>
+          {buttonText}
+        </button>
       )}
     </header>
   );
