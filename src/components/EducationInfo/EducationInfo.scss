@@ -12,6 +12,10 @@
       display: flex;
       flex-direction: column;
     }
+
+    &-delete-btn {
+      grid-column: 2/3;
+    }
   }
 }
 
