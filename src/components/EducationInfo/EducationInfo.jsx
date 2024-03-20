@@ -6,7 +6,6 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 const EducationInfo = () => {
   const [educations, setEducation] = useState([
     {
-      id: 1,
       schoolName: "",
       degree: "",
       startingDate: "",
@@ -14,13 +13,31 @@ const EducationInfo = () => {
     },
   ]);
 
-  console.log(educations.length);
+  const handleInputChange = (event, index) => {
+    setEducation((prevState) =>
+      prevState.map((education, i) => {
+        if (i === index) {
+          return {
+            ...education,
+            [event.target.name]: event.target.value,
+          };
+        }
+
+        return education;
+      }),
+    );
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
 
   const handleAddEducation = () => {
     setEducation([
       ...educations,
       {
-        id: educations[educations.length - 1].id + 1,
         schoolName: "",
         degree: "",
         startingDate: "",
@@ -29,13 +46,12 @@ const EducationInfo = () => {
     ]);
   };
 
-  const handleDeleteExperience = (event, id) => {
+  const handleDeleteEducation = (event, index) => {
     event.preventDefault();
-    if (educations.length > 1) {
-      const updatedExperiences = [...educations];
-      updatedExperiences.splice(id - 1, 1);
-      setEducation(updatedExperiences);
-    }
+
+    setEducation((prevState) => {
+      return prevState.filter((_, i) => i !== index);
+    });
   };
 
   return (
@@ -48,11 +64,11 @@ const EducationInfo = () => {
         buttonText="Add more education"
         handleClick={handleAddEducation}
       />
-      {educations.map((education, id) => (
-        <form action="" className="education__form form" key={id}>
+      {educations.map((_, index) => (
+        <form action="" className="education__form form" key={index}>
           <div>
             <label
-              htmlFor="school name"
+              htmlFor={`school name-${index}`}
               className="education__form-label form-label"
             >
               School name
@@ -60,13 +76,15 @@ const EducationInfo = () => {
             <input
               type="text"
               name="school name"
-              id="school name"
+              id={`school name-${index}`}
               className="education__form-input form-input"
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div>
             <label
-              htmlFor="degree"
+              htmlFor={`degree-${index}`}
               className="education__form-label form-label"
             >
               Degree, certification or title
@@ -74,13 +92,15 @@ const EducationInfo = () => {
             <input
               type="text"
               name="degree"
-              id="degree"
+              id={`degree-${index}`}
               className="education__form-input form-input"
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div>
             <label
-              htmlFor="starting date"
+              htmlFor={`starting date-${index}`}
               className="education__form-label form-label"
             >
               Starting date
@@ -88,14 +108,16 @@ const EducationInfo = () => {
             <input
               type="text"
               name="starting date"
-              id="starting date"
+              id={`starting date-${index}`}
               className="education__form-input form-input"
               placeholder="MM/YYYY"
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div>
             <label
-              htmlFor="ending date"
+              htmlFor={`ending date-${index}`}
               className="education__form-label form-label"
             >
               Ending date
@@ -103,15 +125,17 @@ const EducationInfo = () => {
             <input
               type="text"
               name="ending date"
-              id="ending date"
+              id={`ending date-${index}`}
               className="education__form-input form-input"
               placeholder="MM/YYYY"
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           {educations.length > 1 && (
             <button
               className="education__form-delete-btn delete-btn"
-              onClick={(event) => handleDeleteExperience(event, id)}
+              onClick={(event) => handleDeleteEducation(event, index)}
             >
               <RiDeleteBin5Line />
             </button>

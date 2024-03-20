@@ -5,17 +5,36 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Skills = () => {
   const [skills, setSkills] = useState([
-    { id: 1, skill: "JavaScript" },
-    { id: 2, skill: "Strong communication" },
-    { id: 3, skill: "Adaptability" },
+    { skill: "JavaScript" },
+    { skill: "Strong communication" },
+    { skill: "Adaptability" },
   ]);
 
-  const handleDeleteSkill = (skillId) => {
-    setSkills(skills.filter((skill) => skill.id !== skillId));
+  const handleInputChange = (event, index) => {
+    setSkills((prevState) =>
+      prevState.map((skill, i) => {
+        if (i === index) {
+          return {
+            ...skill,
+            [event.target.name]: event.target.value,
+          };
+        }
+
+        return skill;
+      }),
+    );
   };
 
   const handleAddSkill = () => {
-    setSkills([...skills, { id: skills.length + 1, skill: "" }]);
+    setSkills([...skills, { skill: "" }]);
+  };
+
+  const handleDeleteSkill = (event, index) => {
+    event.preventDefault();
+
+    setSkills((prevState) => {
+      return prevState.filter((_, i) => i !== index);
+    });
   };
 
   const handleKeyPress = (event, skillId) => {
@@ -50,18 +69,20 @@ const Skills = () => {
         handleClick={handleAddSkill}
       />
       <form action="" className="skills__form form">
-        {skills.map((skill) => (
-          <div key={skill.id}>
+        {skills.map((skill, index) => (
+          <div key={index}>
             <input
               type="text"
+              name="skill"
               className="skills__form-input form-input"
               placeholder={skill.skill ? `e.g. ${skill.skill}` : "New skill..."}
-              onKeyDown={(e) => handleKeyPress(e, skill.id)}
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event, index)}
             />
             {skills.length > 1 && (
               <button
                 className="skills__form-delete-btn delete-btn"
-                onClick={() => handleDeleteSkill(skill.id)}
+                onClick={(event) => handleDeleteSkill(event, index)}
               >
                 <RiDeleteBin5Line />
               </button>

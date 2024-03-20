@@ -15,6 +15,27 @@ const WorkExperience = () => {
     },
   ]);
 
+  const handleInputChange = (event, index) => {
+    setWorkExperiences((prevState) =>
+      prevState.map((experience, i) => {
+        if (i === index) {
+          return {
+            ...experience,
+            [event.target.name]: event.target.value,
+          };
+        }
+
+        return experience;
+      }),
+    );
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
   const handleAddExperience = () => {
     setWorkExperiences([
       ...workExperiences,
@@ -29,19 +50,12 @@ const WorkExperience = () => {
     ]);
   };
 
-  const handleInputChange = (event, index) => {
-    const updatedExperiences = [...workExperiences];
-    updatedExperiences[index][event.target.name] = event.target.value;
-    setWorkExperiences(updatedExperiences);
-  };
-
   const handleDeleteExperience = (event, index) => {
     event.preventDefault();
-    if (workExperiences.length > 1) {
-      const updatedExperiences = [...workExperiences];
-      updatedExperiences.splice(index, 1);
-      setWorkExperiences(updatedExperiences);
-    }
+
+    setWorkExperiences((prevState) => {
+      return prevState.filter((_, i) => i !== index);
+    });
   };
 
   return (
@@ -69,8 +83,8 @@ const WorkExperience = () => {
               name="position"
               id={`your position-${index}`}
               className="work-experience__form-input form-input"
-              value={experience.position}
-              onChange={(e) => handleInputChange(e, index)}
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div>
@@ -85,8 +99,8 @@ const WorkExperience = () => {
               name="company"
               id={`company-${index}`}
               className="work-experience__form-input form-input"
-              value={experience.company}
-              onChange={(e) => handleInputChange(e, index)}
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div>
@@ -101,8 +115,8 @@ const WorkExperience = () => {
               name="location"
               id={`location-${index}`}
               className="work-experience__form-input form-input"
-              value={experience.location}
-              onChange={(e) => handleInputChange(e, index)}
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
           </div>
           <div className="work-experience__form-company">
@@ -119,8 +133,8 @@ const WorkExperience = () => {
                 id={`from-${index}`}
                 className="work-experience__form-input form-input"
                 placeholder="MM/YYYY"
-                value={experience.from}
-                onChange={(e) => handleInputChange(e, index)}
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
               />
             </div>
             <div>
@@ -136,8 +150,8 @@ const WorkExperience = () => {
                 id={`to-${index}`}
                 className="work-experience__form-input form-input"
                 placeholder="MM/YYYY"
-                value={experience.to}
-                onChange={(e) => handleInputChange(e, index)}
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
               />
             </div>
           </div>
@@ -153,13 +167,13 @@ const WorkExperience = () => {
             rows="6"
             placeholder="Describe your main tasks and responsibilities in this role, as well as any achievements or accomplishments you are particularly proud of. Be specific and use metrics or numbers to quantify your impact whenever possible."
             className="work-experience__form-textarea form-input"
-            value={experience.tasks}
-            onChange={(e) => handleInputChange(e, index)}
+            onChange={(event) => handleInputChange(event, index)}
+            onKeyDown={(event) => handleKeyPress(event)}
           ></textarea>
           {workExperiences.length > 1 && (
             <button
               className="work-experience__form-delete-btn delete-btn"
-              onClick={() => handleDeleteExperience(event, index)}
+              onClick={(event) => handleDeleteExperience(event, index)}
             >
               <RiDeleteBin5Line />
             </button>
