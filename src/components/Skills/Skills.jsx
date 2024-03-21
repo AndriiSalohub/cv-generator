@@ -33,18 +33,9 @@ const Skills = () => {
     });
   };
 
-  const handleKeyPress = (event, skillId) => {
+  const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      if (event.target.value.trim()) {
-        setSkills([
-          ...skills.map((skill) =>
-            skill.id === skillId
-              ? { ...skill, skill: event.target.value }
-              : skill,
-          ),
-        ]);
-      }
     }
   };
 
@@ -73,12 +64,12 @@ const Skills = () => {
               className="skills__form-input form-input"
               placeholder={skill.skill ? `e.g. ${skill.skill}` : "New skill..."}
               onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
             />
             {skills.length > 1 && (
               <button
                 className="skills__form-delete-btn delete-btn"
-                onClick={(event) => handleDeleteSkill(event, index)}
+                onClick={(event) => handleDeleteSkill(event)}
               >
                 <RiDeleteBin5Line />
               </button>
