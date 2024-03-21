@@ -4,11 +4,7 @@ import "./Skills.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Skills = () => {
-  const [skills, setSkills] = useState([
-    { skill: "JavaScript" },
-    { skill: "Strong communication" },
-    { skill: "Adaptability" },
-  ]);
+  const [skills, setSkills] = useState([]);
 
   const handleInputChange = (event, index) => {
     setSkills((prevState) =>

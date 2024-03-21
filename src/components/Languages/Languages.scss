@@ -1,0 +1,45 @@
+@import "../../styles//styles.scss";
+
+.languages {
+  margin-top: 50px;
+
+  &__form {
+    & div {
+      display: flex;
+      width: 100%;
+      gap: 5px;
+    }
+
+    &-input {
+      width: 100%;
+    }
+
+    &-select {
+      font-size: 15px;
+      margin-bottom: 20px;
+      background-color: $secondary-bg;
+      border: $secondary-border;
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .languages__form {
+    & div {
+      flex-direction: column;
+    }
+
+    &-input {
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .languages__form {
+    &-input {
+      width: auto !important;
+    }
+  }
+}
