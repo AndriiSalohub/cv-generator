@@ -1,0 +1,14 @@
+.interests {
+  margin-top: 50px;
+
+  &__form {
+    & div {
+      display: flex;
+      gap: 5px;
+    }
+
+    &-input {
+      width: 100%;
+    }
+  }
+}

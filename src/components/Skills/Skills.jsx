@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Skills.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Skills = () => {
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState([
+    {
+      skill: "",
+    },
+  ]);
 
   const handleInputChange = (event, index) => {
     setSkills((prevState) =>
@@ -39,12 +43,6 @@ const Skills = () => {
     }
   };
 
-  useEffect(() => {
-    if (skills.length === 0) {
-      handleAddSkill();
-    }
-  }, [skills]);
-
   return (
     <section className="skills">
       <FormDescription
@@ -69,7 +67,7 @@ const Skills = () => {
             {skills.length > 1 && (
               <button
                 className="skills__form-delete-btn delete-btn"
-                onClick={(event) => handleDeleteSkill(event)}
+                onClick={(event) => handleDeleteSkill(event, index)}
               >
                 <RiDeleteBin5Line />
               </button>
