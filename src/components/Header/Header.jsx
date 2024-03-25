@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
@@ -9,10 +10,10 @@ const Header = () => {
       <nav className="header__navigation">
         <ul className="header__navigation-menu">
           <li className="header__navigation-item">
-            <a href="">Edit CV</a>
+            <NavLink to="/">Edit CV</NavLink>
           </li>
           <li className="header__navigation-item">
-            <a href="">Preview CV</a>
+            <NavLink to="/preview">Preview CV</NavLink>
           </li>
           <li className="header__navigation-item">
             <button className="header__upload-btn">Fill Example CV</button>

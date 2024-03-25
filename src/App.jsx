@@ -1,27 +1,26 @@
-import EducationInfo from "./components/EducationInfo/EducationInfo.jsx";
-import Footer from "./components/Footer/Footer";
-import GeneralInfo from "./components/GeneralInfom/GeneralInfo.jsx";
-import Header from "./components/Header/Header.jsx";
-import Interests from "./components/Interests/Interests.jsx";
-import Languages from "./components/Languages/Languages.jsx";
-import Profile from "./components/Profile/Profile.jsx";
-import Skills from "./components/Skills/Skills.jsx";
-import WorkExperience from "./components/WorkExperience/WorkExperience.jsx";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import Root from "./pages/Root.jsx";
+import Edit from "./pages/Edit.jsx";
+import Preview from "./pages/Preview.jsx";
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root />}>
+        <Route index element={<Edit />} />
+        <Route path="/preview" element={<Preview />} />
+      </Route>,
+    ),
+  );
+
   return (
     <>
-      <Header />
-      <main className="main">
-        <Profile />
-        <GeneralInfo />
-        <EducationInfo />
-        <WorkExperience />
-        <Skills />
-        <Languages />
-        <Interests />
-      </main>
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
