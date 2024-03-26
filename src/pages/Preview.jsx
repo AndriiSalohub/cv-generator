@@ -1,7 +1,11 @@
-import React from "react";
+import DownloadButton from "../components/DownloadButton/DownloadButton";
 
 const Preview = () => {
-  return <h2>Preview page</h2>;
+  return (
+    <>
+      <DownloadButton />
+    </>
+  );
 };
 
 export default Preview;
