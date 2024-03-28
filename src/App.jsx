@@ -7,6 +7,7 @@ import {
 import Root from "./pages/Root.jsx";
 import Edit from "./pages/Edit.jsx";
 import Preview from "./pages/Preview.jsx";
+import { useState } from "react";
 
 function App() {
   const router = createBrowserRouter(

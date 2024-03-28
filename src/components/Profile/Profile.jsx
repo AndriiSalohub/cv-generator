@@ -13,7 +13,7 @@ const Profile = () => {
       {profileImage ? (
         <img alt="" className="profile__image" src={profileImage} />
       ) : (
-        <div className="profile__image-placeholder"></div>
+        <div className="profile__image-placeholder image-placeholder"></div>
       )}
       <div className="profile__image-info">
         <h2 className="profile__image-title title">Profile Picture</h2>

@@ -1,40 +1,30 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Interests.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import {
+  addInterest,
+  deleteInterest,
+  interestChange,
+} from "../../store/slices/interestsSlice";
 
 const Interests = () => {
-  const [interests, setInterests] = useState([
-    {
-      interest: "",
-    },
-  ]);
+  const interests = useSelector((state) => state.interests);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event, index) => {
-    setInterests((prevState) =>
-      prevState.map((interest, i) => {
-        if (i === index) {
-          return {
-            ...interest,
-            [event.target.name]: event.target.value,
-          };
-        }
-
-        return interest;
-      }),
-    );
+    const { name, value } = event.target;
+    dispatch(interestChange({ index, name, value }));
   };
 
   const handleAddInterest = () => {
-    setInterests([...interests, { skill: "" }]);
+    dispatch(addInterest());
   };
 
   const handleDeleteInterest = (event, index) => {
     event.preventDefault();
 
-    setInterests((prevState) => {
-      return prevState.filter((_, i) => i !== index);
-    });
+    dispatch(deleteInterest(index));
   };
 
   const handleKeyPress = (event) => {
@@ -54,7 +44,7 @@ const Interests = () => {
         handleClick={handleAddInterest}
       />
       <form action="" className="interests__form form">
-        {interests.map((interest, index) => (
+        {interests.map((_, index) => (
           <div key={index}>
             <input
               type="text"

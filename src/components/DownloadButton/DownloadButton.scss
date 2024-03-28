@@ -4,7 +4,6 @@
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  grid-column: 2;
   padding: 10px 20px;
   background-color: $main-color;
   border: none;
@@ -12,6 +11,7 @@
   transition: background-color 0.2s ease-in-out;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 
   & svg {
     width: 20px;
