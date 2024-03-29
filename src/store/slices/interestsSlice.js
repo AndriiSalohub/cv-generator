@@ -1,46 +1,8 @@
-// import { createSlice } from "@reduxjs/toolkit";
-//
-// const initialState = [
-//   {
-//     interest: "",
-//   },
-// ];
-//
-// export const interestsSlice = createSlice({
-//   name: "interests",
-//   initialState,
-//   reducers: {
-//     addInterest: (state, action) => {
-//       state.push({
-//         interest: action.payload,
-//       });
-//     },
-//     deleteInterest: (state, action) => {
-//       const index = state.findIndex((item) => item.interest === action.payload);
-//       if (index !== -1) {
-//         state.splice(index, 1);
-//       }
-//     },
-//     interestChange: (state, action) => {
-//       const { index, name, value } = action.payload;
-//       const interestToUpdate = state[index];
-//       if (interestToUpdate) {
-//         interestToUpdate[name] = value;
-//       }
-//     },
-//   },
-// });
-//
-// export const { addInterest, deleteInterest, interestChange } =
-//   interestsSlice.actions;
-//
-// export default interestsSlice.reducer;
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
   {
-    skill: "",
+    interest: "",
   },
 ];
 
@@ -48,15 +10,14 @@ export const interestsSlice = createSlice({
   name: "interests",
   initialState,
   reducers: {
-    addInterest: (state, action) => {
+    addInterest: (state) => {
       state.push({
-        interest: action.payload,
+        interest: "",
       });
     },
     deleteInterest: (state, action) => {
-      const index = state.findIndex((item) => item.interest === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1);
+      if (action.payload !== -1) {
+        state.splice(action.payload, 1);
       }
     },
     interestChange: (state, action) => {
@@ -69,7 +30,6 @@ export const interestsSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { addInterest, deleteInterest, interestChange } =
   interestsSlice.actions;
 

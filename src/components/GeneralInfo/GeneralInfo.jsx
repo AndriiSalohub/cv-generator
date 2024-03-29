@@ -1,7 +1,35 @@
 import "./GeneralInfo.scss";
 import FormDescription from "../FormDescription/FormDescription.jsx";
+import { useDispatch } from "react-redux";
+import { generalInformationChange } from "../../store/slices/generalInformationSlice.js";
 
 const GeneralInfo = () => {
+  const dispatch = useDispatch();
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name.split(" ").length == 2) {
+      const fieldName =
+        name.split(" ")[0] +
+        name.split(" ")[1][0].toUpperCase() +
+        name.split(" ")[1].slice(1);
+
+      dispatch(
+        generalInformationChange({
+          name: fieldName,
+          value,
+        }),
+      );
+    } else {
+      dispatch(
+        generalInformationChange({
+          name,
+          value,
+        }),
+      );
+    }
+  };
+
   return (
     <section className="general-info">
       <FormDescription
@@ -29,6 +57,7 @@ const GeneralInfo = () => {
               name="first name"
               id="first name"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
           <div>
@@ -44,6 +73,7 @@ const GeneralInfo = () => {
               name="last name"
               id="last name"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
         </div>
@@ -59,6 +89,7 @@ const GeneralInfo = () => {
           id="profession"
           placeholder="e.g. Web Developer"
           className="general-info__form-input form-input"
+          onChange={(event) => handleInputChange(event)}
         />
         <label
           htmlFor="location"
@@ -72,6 +103,7 @@ const GeneralInfo = () => {
           id="location"
           placeholder="e.g. Atlanta Developer"
           className="general-info__form-input form-input"
+          onChange={(event) => handleInputChange(event)}
         />
         <div className="general-info__contacts form-container">
           <div>
@@ -87,6 +119,7 @@ const GeneralInfo = () => {
               id="linkedIn"
               placeholder="e.g. andriisalohub"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
           <div>
@@ -102,6 +135,7 @@ const GeneralInfo = () => {
               id="portfolio"
               placeholder="e.g. https://github.com/AndriiSalohub/"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
           <div>
@@ -117,6 +151,7 @@ const GeneralInfo = () => {
               id="email"
               placeholder="e.g. example@gmail.com"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
           <div>
@@ -132,21 +167,23 @@ const GeneralInfo = () => {
               id="phone number"
               placeholder="e.g. +38 067452 1334"
               className="general-info__form-input form-input"
+              onChange={(event) => handleInputChange(event)}
             />
           </div>
         </div>
         <label
-          htmlFor="desctiption"
+          htmlFor="description"
           className="general-info__form-label form-label"
         >
           Desctiption(About me)
         </label>
         <textarea
-          name="desctiption"
-          id="desctiption"
+          name="description"
+          id="description"
           rows="6"
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
           className="general-info__form-textarea form-input"
+          onChange={(event) => handleInputChange(event)}
         ></textarea>
       </form>
     </section>

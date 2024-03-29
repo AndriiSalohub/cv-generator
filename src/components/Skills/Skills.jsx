@@ -2,39 +2,30 @@ import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Skills.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import {
+  addSkill,
+  deleteSkill,
+  skillChange,
+} from "../../store/slices/skillsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Skills = () => {
-  const [skills, setSkills] = useState([
-    {
-      skill: "",
-    },
-  ]);
+  const skills = useSelector((state) => state.skills);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event, index) => {
-    setSkills((prevState) =>
-      prevState.map((skill, i) => {
-        if (i === index) {
-          return {
-            ...skill,
-            [event.target.name]: event.target.value,
-          };
-        }
-
-        return skill;
-      }),
-    );
+    const { name, value } = event.target;
+    dispatch(skillChange({ index, name, value }));
   };
 
   const handleAddSkill = () => {
-    setSkills([...skills, { skill: "" }]);
+    dispatch(addSkill());
   };
 
   const handleDeleteSkill = (event, index) => {
     event.preventDefault();
 
-    setSkills((prevState) => {
-      return prevState.filter((_, i) => i !== index);
-    });
+    dispatch(deleteSkill(index));
   };
 
   const handleKeyPress = (event) => {
@@ -42,7 +33,6 @@ const Skills = () => {
       event.preventDefault();
     }
   };
-
   return (
     <section className="skills">
       <FormDescription

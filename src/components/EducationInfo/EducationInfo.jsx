@@ -1,29 +1,31 @@
-import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription.jsx";
 import "./EducationInfo.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addEducation,
+  deleteEducation,
+  educationChange,
+} from "../../store/slices/educationSlice.js";
 
 const EducationInfo = () => {
-  const [educations, setEducation] = useState([
-    {
-      schoolName: "",
-      degree: "",
-      startingDate: "",
-      endingDate: "",
-    },
-  ]);
+  const educations = useSelector((state) => state.education);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event, index) => {
-    setEducation((prevState) =>
-      prevState.map((education, i) => {
-        if (i === index) {
-          return {
-            ...education,
-            [event.target.name]: event.target.value,
-          };
-        }
+    const { name, value } = event.target;
+    const fieldName =
+      name.split(" ")[0] +
+      name.split(" ")[1][0].toUpperCase() +
+      name.split(" ")[1].slice(1);
 
-        return education;
+    console.log(fieldName);
+
+    dispatch(
+      educationChange({
+        index,
+        name: fieldName,
+        value,
       }),
     );
   };
@@ -35,23 +37,13 @@ const EducationInfo = () => {
   };
 
   const handleAddEducation = () => {
-    setEducation([
-      ...educations,
-      {
-        schoolName: "",
-        degree: "",
-        startingDate: "",
-        endingDate: "",
-      },
-    ]);
+    dispatch(addEducation());
   };
 
   const handleDeleteEducation = (event, index) => {
     event.preventDefault();
 
-    setEducation((prevState) => {
-      return prevState.filter((_, i) => i !== index);
-    });
+    dispatch(deleteEducation(index));
   };
 
   return (

@@ -1,41 +1,30 @@
-import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./Languages.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addLanguage,
+  deleteLanguage,
+  languageChange,
+} from "../../store/slices/languagesSlice";
 
 const Languages = () => {
-  const [languages, setLanguages] = useState([
-    {
-      language: "",
-      lvl: "",
-    },
-  ]);
+  const languages = useSelector((state) => state.languages);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event, index) => {
-    setLanguages((prevState) =>
-      prevState.map((language, i) => {
-        if (i === index) {
-          return {
-            ...language,
-            [event.target.name]: event.target.value,
-          };
-        }
-
-        return language;
-      }),
-    );
+    const { name, value } = event.target;
+    dispatch(languageChange({ index, name, value }));
   };
 
   const handleAddLanguage = () => {
-    setLanguages([...languages, { language: "", lvl: "" }]);
+    dispatch(addLanguage());
   };
 
-  const handleDeleteLanguage = (event, index) => {
+  const handleDeleteLanguage = (event) => {
     event.preventDefault();
 
-    setLanguages((prevState) => {
-      return prevState.filter((_, i) => i !== index);
-    });
+    dispatch(deleteLanguage());
   };
 
   const handleKeyPress = (event) => {

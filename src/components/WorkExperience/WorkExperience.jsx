@@ -1,33 +1,20 @@
-import { useState } from "react";
 import FormDescription from "../FormDescription/FormDescription";
 import "./WorkExperience.scss";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addWorkExperience,
+  deleteWorkExperience,
+  workExperienceChange,
+} from "../../store/slices/workSlice";
 
 const WorkExperience = () => {
-  const [workExperiences, setWorkExperiences] = useState([
-    {
-      position: "",
-      company: "",
-      location: "",
-      from: "",
-      to: "",
-      tasks: "",
-    },
-  ]);
+  const workExperiences = useSelector((state) => state.workExperience);
+  const dispatch = useDispatch();
 
   const handleInputChange = (event, index) => {
-    setWorkExperiences((prevState) =>
-      prevState.map((experience, i) => {
-        if (i === index) {
-          return {
-            ...experience,
-            [event.target.name]: event.target.value,
-          };
-        }
-
-        return experience;
-      }),
-    );
+    const { name, value } = event.target;
+    dispatch(workExperienceChange({ index, name, value }));
   };
 
   const handleKeyPress = (event) => {
@@ -37,25 +24,13 @@ const WorkExperience = () => {
   };
 
   const handleAddExperience = () => {
-    setWorkExperiences([
-      ...workExperiences,
-      {
-        position: "",
-        company: "",
-        location: "",
-        from: "",
-        to: "",
-        tasks: "",
-      },
-    ]);
+    dispatch(addWorkExperience());
   };
 
   const handleDeleteExperience = (event, index) => {
     event.preventDefault();
 
-    setWorkExperiences((prevState) => {
-      return prevState.filter((_, i) => i !== index);
-    });
+    dispatch(deleteWorkExperience(index));
   };
 
   return (
@@ -69,7 +44,7 @@ const WorkExperience = () => {
         handleClick={handleAddExperience}
       />
 
-      {workExperiences.map((experience, index) => (
+      {workExperiences.map((_, index) => (
         <form key={index} action="" className="work-experience__form form">
           <div>
             <label
