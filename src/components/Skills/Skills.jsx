@@ -44,13 +44,14 @@ const Skills = () => {
         handleClick={handleAddSkill}
       />
       <form action="" className="skills__form form">
-        {skills.map((skill, index) => (
+        {skills.map(({ skill }, index) => (
           <div key={index}>
             <input
               type="text"
               name="skill"
               className="skills__form-input form-input"
-              placeholder={skill.skill ? `e.g. ${skill.skill}` : "New skill..."}
+              value={skill || null}
+              placeholder="New skill..."
               onChange={(event) => handleInputChange(event, index)}
               onKeyDown={(event) => handleKeyPress(event)}
             />

@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 import "./Cv.scss";
 
 const Cv = () => {
-  const image = "";
-
   const profileImage = useSelector((state) => state.profile.profileImage);
   const skills = useSelector((state) => state.skills);
   const languages = useSelector((state) => state.languages);
@@ -22,15 +20,17 @@ const Cv = () => {
             Skills
           </h2>
           <ul className="cv__sidebar-skills-list cv__sidebar-list">
-            {skills[0].skill != "" &&
-              skills.map(({ skill }) => (
-                <li
-                  className="cv__sidebar-skills-list-item cv__sidebar-list-item"
-                  key={skill}
-                >
-                  - {skill}
-                </li>
-              ))}
+            {skills.map(
+              ({ skill }) =>
+                skill && (
+                  <li
+                    className="cv__sidebar-skills-list-item cv__sidebar-list-item"
+                    key={skill}
+                  >
+                    - {skill}
+                  </li>
+                ),
+            )}
           </ul>
         </section>
         <section className="cv__sidebar-languages cv__sidebar-part">
@@ -38,20 +38,22 @@ const Cv = () => {
             Languages
           </h2>
           <ul className="cv__sidebar-languages-list cv__sidebar-list">
-            {languages[0].language !== "" &&
-              languages.map(({ language, lvl }) => (
-                <li
-                  className="cv__sidebar-languages-list-item cv__sidebar-list-item"
-                  key={language}
-                >
-                  <p>- {language}</p>
-                  <span>
-                    {lvl.replace(/\b\w/g, function(char) {
-                      return char.toUpperCase();
-                    })}
-                  </span>
-                </li>
-              ))}
+            {languages.map(
+              ({ language, lvl }) =>
+                language && (
+                  <li
+                    className="cv__sidebar-languages-list-item cv__sidebar-list-item"
+                    key={language}
+                  >
+                    <p>- {language}</p>
+                    <span>
+                      {lvl.replace(/\b\w/g, function(char) {
+                        return char.toUpperCase();
+                      })}
+                    </span>
+                  </li>
+                ),
+            )}
           </ul>
         </section>
         <section className="cv__sidebar-interests cv__sidebar-part">
@@ -59,15 +61,17 @@ const Cv = () => {
             Interests
           </h2>
           <ul className="cv__sidebar-interests-list cv__sidebar-list">
-            {interests[0].interest !== "" &&
-              interests.map(({ interest }) => (
-                <li
-                  className="cv__sidebar-iterests-list-item cv__sidebar-list-item"
-                  key={interest}
-                >
-                  - {interest}
-                </li>
-              ))}
+            {interests.map(
+              ({ interest }) =>
+                interest && (
+                  <li
+                    className="cv__sidebar-iterests-list-item cv__sidebar-list-item"
+                    key={interest}
+                  >
+                    - {interest}
+                  </li>
+                ),
+            )}
           </ul>
         </section>
       </aside>

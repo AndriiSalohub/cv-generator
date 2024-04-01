@@ -51,6 +51,7 @@ const Languages = () => {
               id={`language-${language}-${index}`}
               type="text"
               className="languages__form-input form-input"
+              value={language.language || null}
               placeholder="New language..."
               onChange={(event) => handleInputChange(event, index)}
               onKeyDown={(event) => handleKeyPress(event)}
@@ -58,6 +59,7 @@ const Languages = () => {
             <select
               name="lvl"
               id="language-lvl"
+              value={language.lvl || null}
               className="languages__form-select"
               onChange={(event) => handleInputChange(event, index)}
             >

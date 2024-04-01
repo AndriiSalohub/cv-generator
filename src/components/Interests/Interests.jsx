@@ -44,13 +44,14 @@ const Interests = () => {
         handleClick={handleAddInterest}
       />
       <form action="" className="interests__form form">
-        {interests.map((_, index) => (
+        {interests.map(({ interest }, index) => (
           <div key={index}>
             <input
               type="text"
               name="interest"
               className="interests__form-input form-input"
               placeholder="New Interest..."
+              value={interest || null}
               onChange={(event) => handleInputChange(event, index)}
               onKeyDown={(event) => handleKeyPress(event)}
             />
