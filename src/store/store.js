@@ -5,6 +5,7 @@ import educationReducer from "./slices/educationSlice.js";
 import workReducer from "./slices/workSlice.js";
 import skillsReducer from "./slices/skillsSlice.js";
 import languagesReducer from "./slices/languagesSlice.js";
+import profileReducer from "./slices/profileSlice.js";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     workExperience: workReducer,
     skills: skillsReducer,
     languages: languagesReducer,
+    profile: profileReducer,
   },
 });

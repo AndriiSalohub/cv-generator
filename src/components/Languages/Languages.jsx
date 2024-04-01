@@ -64,8 +64,9 @@ const Languages = () => {
               <option value="null">Select language proficiency</option>
               <option value="elementary">Elementary</option>
               <option value="limited">Limited</option>
+              <option value="intermediate">Intermediate</option>
               <option value="professional">Professional</option>
-              <option value="native">Native / Bilingual</option>
+              <option value="native / bilingual">Native / Bilingual</option>
             </select>
             {languages.length > 1 && (
               <button

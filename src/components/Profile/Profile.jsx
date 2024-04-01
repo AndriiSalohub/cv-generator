@@ -1,17 +1,19 @@
-import { useState } from "react";
 import "./Profile.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { addProfileImage } from "../../store/slices/profileSlice";
 
 const Profile = () => {
-  const [profileImage, setProfileImage] = useState(null);
+  const profile = useSelector((state) => state.profile.profileImage);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setProfileImage(URL.createObjectURL(e.target.files[0]));
+    dispatch(addProfileImage(URL.createObjectURL(e.target.files[0])));
   };
 
   return (
     <section className="profile">
-      {profileImage ? (
-        <img alt="" className="profile__image" src={profileImage} />
+      {profile ? (
+        <img alt="" className="profile__image" src={profile} />
       ) : (
         <div className="profile__image-placeholder image-placeholder"></div>
       )}
