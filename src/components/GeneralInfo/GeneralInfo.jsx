@@ -1,9 +1,20 @@
 import "./GeneralInfo.scss";
 import FormDescription from "../FormDescription/FormDescription.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { generalInformationChange } from "../../store/slices/generalInformationSlice.js";
 
 const GeneralInfo = () => {
+  const {
+    firstName,
+    lastName,
+    profession,
+    location,
+    linkedIn,
+    portfolio,
+    email,
+    phoneNumber,
+    description,
+  } = useSelector((state) => state.generalInformation);
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
@@ -56,6 +67,7 @@ const GeneralInfo = () => {
               type="text"
               name="first name"
               id="first name"
+              value={firstName || null}
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
             />
@@ -72,6 +84,7 @@ const GeneralInfo = () => {
               type="text"
               name="last name"
               id="last name"
+              value={lastName || null}
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
             />
@@ -87,6 +100,7 @@ const GeneralInfo = () => {
           type="text"
           name="profession"
           id="profession"
+          value={profession || null}
           placeholder="e.g. Web Developer"
           className="general-info__form-input form-input"
           onChange={(event) => handleInputChange(event)}
@@ -101,6 +115,7 @@ const GeneralInfo = () => {
           type="text"
           name="location"
           id="location"
+          value={location || null}
           placeholder="e.g. Atlanta Developer"
           className="general-info__form-input form-input"
           onChange={(event) => handleInputChange(event)}
@@ -117,6 +132,7 @@ const GeneralInfo = () => {
               type="text"
               name="linkedIn"
               id="linkedIn"
+              value={linkedIn || null}
               placeholder="e.g. andriisalohub"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -133,6 +149,7 @@ const GeneralInfo = () => {
               type="url"
               name="portfolio"
               id="portfolio"
+              value={portfolio || null}
               placeholder="e.g. https://github.com/AndriiSalohub/"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -149,6 +166,7 @@ const GeneralInfo = () => {
               type="email"
               name="email"
               id="email"
+              value={email || null}
               placeholder="e.g. example@gmail.com"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -165,6 +183,7 @@ const GeneralInfo = () => {
               type="tel"
               name="phone number"
               id="phone number"
+              value={phoneNumber || null}
               placeholder="e.g. +38 067452 1334"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -181,6 +200,7 @@ const GeneralInfo = () => {
           name="description"
           id="description"
           rows="6"
+          value={description || null}
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
           className="general-info__form-textarea form-input"
           onChange={(event) => handleInputChange(event)}

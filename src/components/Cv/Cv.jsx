@@ -1,4 +1,9 @@
 import { useSelector } from "react-redux";
+import { FaLocationDot } from "react-icons/fa6";
+import { CgMail } from "react-icons/cg";
+import { FaLinkedin } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import "./Cv.scss";
 
 const Cv = () => {
@@ -6,6 +11,17 @@ const Cv = () => {
   const skills = useSelector((state) => state.skills);
   const languages = useSelector((state) => state.languages);
   const interests = useSelector((state) => state.interests);
+  const {
+    firstName,
+    lastName,
+    profession,
+    location,
+    linkedIn,
+    portfolio,
+    email,
+    phoneNumber,
+    description,
+  } = useSelector((state) => state.generalInformation);
 
   return (
     <section className="cv">
@@ -76,8 +92,44 @@ const Cv = () => {
         </section>
       </aside>
       <div className="cv__main">
-        Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-        cillum sint consectetur cupidatat.
+        <section className="cv__main-general-info">
+          <h2 className="cv__main-general-info-name">
+            {firstName} {lastName}
+          </h2>
+          <h3 className="cv__main-general-info-job">{profession}</h3>
+          <p className="cv__main-general-info-location">
+            <FaLocationDot /> {location}
+          </p>
+          <p className="cv__main-general-info-description desctiption">
+            {description}
+          </p>
+          <ul className="cv__main-general-info-contact-list">
+            <li className="cv__main-general-info-contact-list-item">
+              <CgMail />{" "}
+              <a href={`mailto:${email}`} target="_blank">
+                {email}
+              </a>
+            </li>
+            <li className="cv__main-general-info-contact-list-item cv__main-general-info-contact-list-item-number">
+              <FaPhoneAlt /> {phoneNumber}
+            </li>
+            <li className="cv__main-general-info-contact-list-item">
+              <FaLinkedin />{" "}
+              <a
+                href={`https://www.linkedin.com/in/${linkedIn}`}
+                target="_blank"
+              >
+                {linkedIn}
+              </a>
+            </li>
+            <li className="cv__main-general-info-contact-list-item">
+              <FaGithub />{" "}
+              <a href={portfolio} target="_blank">
+                {portfolio}
+              </a>
+            </li>
+          </ul>
+        </section>
       </div>
     </section>
   );

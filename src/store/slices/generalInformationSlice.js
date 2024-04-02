@@ -1,18 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    firstName: "",
-    lastName: "",
-    profession: "",
-    location: "",
-    linkedIn: "",
-    portfolio: "",
-    email: "",
-    phoneNumber: "",
-    description: "",
-  },
-];
+const initialState = {
+  firstName: "",
+  lastName: "",
+  profession: "",
+  location: "",
+  linkedIn: "",
+  portfolio: "",
+  email: "",
+  phoneNumber: "",
+  description: "",
+};
 
 export const generalInformationSlice = createSlice({
   name: "generalInformation",
@@ -20,7 +18,7 @@ export const generalInformationSlice = createSlice({
   reducers: {
     generalInformationChange: (state, action) => {
       const { name, value } = action.payload;
-      state[0][name] = value;
+      state[name] = value;
     },
   },
 });
