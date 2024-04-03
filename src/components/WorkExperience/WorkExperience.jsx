@@ -44,117 +44,125 @@ const WorkExperience = () => {
         handleClick={handleAddExperience}
       />
 
-      {workExperiences.map((_, index) => (
-        <form key={index} action="" className="work-experience__form form">
-          <div>
-            <label
-              htmlFor={`your position-${index}`}
-              className="work-experience__form-label form-label"
-            >
-              Your position
-            </label>
-            <input
-              type="text"
-              name="position"
-              id={`your position-${index}`}
-              className="work-experience__form-input form-input"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`company-${index}`}
-              className="work-experience__form-label form-label"
-            >
-              Company
-            </label>
-            <input
-              type="text"
-              name="company"
-              id={`company-${index}`}
-              className="work-experience__form-input form-input"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`location-${index}`}
-              className="work-experience__form-label form-label"
-            >
-              Location
-            </label>
-            <input
-              type="text"
-              name="location"
-              id={`location-${index}`}
-              className="work-experience__form-input form-input"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div className="work-experience__form-company">
+      {workExperiences.map(
+        ({ position, company, location, from, to, tasks }, index) => (
+          <form key={index} action="" className="work-experience__form form">
             <div>
               <label
-                htmlFor={`from-${index}`}
+                htmlFor={`your position-${index}`}
                 className="work-experience__form-label form-label"
               >
-                From
+                Your position
               </label>
               <input
                 type="text"
-                name="from"
-                id={`from-${index}`}
+                name="position"
+                id={`your position-${index}`}
+                value={position || null}
                 className="work-experience__form-input form-input"
-                placeholder="MM/YYYY"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
               />
             </div>
             <div>
               <label
-                htmlFor={`to-${index}`}
+                htmlFor={`company-${index}`}
                 className="work-experience__form-label form-label"
               >
-                To
+                Company
               </label>
               <input
                 type="text"
-                name="to"
-                id={`to-${index}`}
+                name="company"
+                id={`company-${index}`}
+                value={company || null}
                 className="work-experience__form-input form-input"
-                placeholder="MM/YYYY"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
               />
             </div>
-          </div>
-          <label
-            htmlFor={`tasks-${index}`}
-            className="work-experience__form-label form-label"
-          >
-            Tasks / Achievements
-          </label>
-          <textarea
-            name="tasks"
-            id={`tasks-${index}`}
-            rows="6"
-            placeholder="Describe your main tasks and responsibilities in this role, as well as any achievements or accomplishments you are particularly proud of. Be specific and use metrics or numbers to quantify your impact whenever possible."
-            className="work-experience__form-textarea form-input"
-            onChange={(event) => handleInputChange(event, index)}
-            onKeyDown={(event) => handleKeyPress(event)}
-          ></textarea>
-          {workExperiences.length > 1 && (
-            <button
-              className="work-experience__form-delete-btn delete-btn"
-              onClick={(event) => handleDeleteExperience(event, index)}
+            <div>
+              <label
+                htmlFor={`location-${index}`}
+                className="work-experience__form-label form-label"
+              >
+                Location
+              </label>
+              <input
+                type="text"
+                name="location"
+                id={`location-${index}`}
+                value={location || null}
+                className="work-experience__form-input form-input"
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
+              />
+            </div>
+            <div className="work-experience__form-company">
+              <div>
+                <label
+                  htmlFor={`from-${index}`}
+                  className="work-experience__form-label form-label"
+                >
+                  From
+                </label>
+                <input
+                  type="text"
+                  name="from"
+                  id={`from-${index}`}
+                  value={from || null}
+                  className="work-experience__form-input form-input"
+                  placeholder="MM/YYYY"
+                  onChange={(event) => handleInputChange(event, index)}
+                  onKeyDown={(event) => handleKeyPress(event)}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor={`to-${index}`}
+                  className="work-experience__form-label form-label"
+                >
+                  To
+                </label>
+                <input
+                  type="text"
+                  name="to"
+                  id={`to-${index}`}
+                  value={to || null}
+                  className="work-experience__form-input form-input"
+                  placeholder="MM/YYYY"
+                  onChange={(event) => handleInputChange(event, index)}
+                  onKeyDown={(event) => handleKeyPress(event)}
+                />
+              </div>
+            </div>
+            <label
+              htmlFor={`tasks-${index}`}
+              className="work-experience__form-label form-label"
             >
-              <RiDeleteBin5Line />
-            </button>
-          )}
-        </form>
-      ))}
+              Tasks / Achievements
+            </label>
+            <textarea
+              name="tasks"
+              id={`tasks-${index}`}
+              rows="6"
+              value={tasks || null}
+              placeholder="Describe your main tasks and responsibilities in this role, as well as any achievements or accomplishments you are particularly proud of. Be specific and use metrics or numbers to quantify your impact whenever possible."
+              className="work-experience__form-textarea form-input"
+              onChange={(event) => handleInputChange(event, index)}
+              onKeyDown={(event) => handleKeyPress(event)}
+            ></textarea>
+            {workExperiences.length > 1 && (
+              <button
+                className="work-experience__form-delete-btn delete-btn"
+                onClick={(event) => handleDeleteExperience(event, index)}
+              >
+                <RiDeleteBin5Line />
+              </button>
+            )}
+          </form>
+        ),
+      )}
     </section>
   );
 };

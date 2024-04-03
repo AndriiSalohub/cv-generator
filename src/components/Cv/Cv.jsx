@@ -22,6 +22,7 @@ const Cv = () => {
     phoneNumber,
     description,
   } = useSelector((state) => state.generalInformation);
+  const workExperience = useSelector((state) => state.workExperience);
 
   return (
     <section className="cv">
@@ -63,7 +64,7 @@ const Cv = () => {
                   >
                     <p>- {language}</p>
                     <span>
-                      {lvl.replace(/\b\w/g, function(char) {
+                      {lvl.replace(/\b\w/g, function (char) {
                         return char.toUpperCase();
                       })}
                     </span>
@@ -128,6 +129,39 @@ const Cv = () => {
                 {portfolio}
               </a>
             </li>
+          </ul>
+        </section>
+        <section className="cv__main-work-experience">
+          <h3 className="cv__main-work-experience-title cv__main-title">
+            Work Experience
+          </h3>
+          <ul className="cv__main-work-experience-list">
+            {workExperience.map(
+              ({ position, company, location, from, to, tasks }, index) => (
+                <li className="cv__main-work-experience-list-item" key={index}>
+                  <h4 className="cv__main-work-experience-list-item-position">
+                    {position}
+                  </h4>
+                  <h5 className="cv__main-work-experience-list-item-company">
+                    {company}
+                  </h5>
+                  <p className="cv__main-work-experience-list-item-work-info">
+                    <span>
+                      {from} - {to}
+                    </span>{" "}
+                    <span>{location}</span>
+                  </p>
+                  {tasks !== "" && (
+                    <h6 className="cv__main-work-experience-list-item-achievements">
+                      Achievements / Tasks:
+                    </h6>
+                  )}
+                  <p className="cv__main-work-experience-list-item-achievements-description description">
+                    {tasks}
+                  </p>
+                </li>
+              ),
+            )}
           </ul>
         </section>
       </div>
