@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import "./Cv.scss";
+import educationSlice from "../../store/slices/educationSlice";
 
 const Cv = () => {
   const profileImage = useSelector((state) => state.profile.profileImage);
@@ -23,6 +24,7 @@ const Cv = () => {
     description,
   } = useSelector((state) => state.generalInformation);
   const workExperience = useSelector((state) => state.workExperience);
+  const educations = useSelector((state) => state.education);
 
   return (
     <section className="cv">
@@ -139,13 +141,13 @@ const Cv = () => {
             {workExperience.map(
               ({ position, company, location, from, to, tasks }, index) => (
                 <li className="cv__main-work-experience-list-item" key={index}>
-                  <h4 className="cv__main-work-experience-list-item-position">
+                  <h4 className="cv__main-work-experience-list-item-position cv__main-list-item-title">
                     {position}
                   </h4>
                   <h5 className="cv__main-work-experience-list-item-company">
                     {company}
                   </h5>
-                  <p className="cv__main-work-experience-list-item-work-info">
+                  <p className="cv__main-work-experience-list-item-work-info cv__main-list-item-period">
                     <span>
                       {from} - {to}
                     </span>{" "}
@@ -158,6 +160,26 @@ const Cv = () => {
                   )}
                   <p className="cv__main-work-experience-list-item-achievements-description description">
                     {tasks}
+                  </p>
+                </li>
+              ),
+            )}
+          </ul>
+        </section>
+        <section className="cv__main-education">
+          <h3 className="cv__main-education-title cv__main-title">Education</h3>
+          <ul className="cv__main-education-list">
+            {educations.map(
+              ({ schoolName, degree, startingDate, endingDate }, index) => (
+                <li className="cv__main-education-list-item" key={index}>
+                  <h4 className="cv__main-education-list-item-title cv__main-list-item-title">
+                    {schoolName}
+                  </h4>
+                  <h5 className="cv__main-education-list-item-subtitle">
+                    {degree}
+                  </h5>
+                  <p className="cv__main-education-list-item-period cv__main-list-item-period">
+                    {startingDate} - {endingDate}
                   </p>
                 </li>
               ),

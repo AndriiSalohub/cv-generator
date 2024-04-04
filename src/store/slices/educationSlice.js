@@ -27,7 +27,6 @@ export const educationSlice = createSlice({
       }
     },
     educationChange: (state, action) => {
-      console.log(action.payload);
       const { index, name, value } = action.payload;
       const infoToUpdate = state[index];
       if (infoToUpdate) {

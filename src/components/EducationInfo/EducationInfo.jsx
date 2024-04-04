@@ -14,20 +14,28 @@ const EducationInfo = () => {
 
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
-    const fieldName =
-      name.split(" ")[0] +
-      name.split(" ")[1][0].toUpperCase() +
-      name.split(" ")[1].slice(1);
+    if (name.split(" ").length == 1) {
+      dispatch(
+        educationChange({
+          index,
+          name,
+          value,
+        }),
+      );
+    } else {
+      const fieldName =
+        name.split(" ")[0] +
+        name.split(" ")[1][0].toUpperCase() +
+        name.split(" ")[1].slice(1);
 
-    console.log(fieldName);
-
-    dispatch(
-      educationChange({
-        index,
-        name: fieldName,
-        value,
-      }),
-    );
+      dispatch(
+        educationChange({
+          index,
+          name: fieldName,
+          value,
+        }),
+      );
+    }
   };
 
   const handleKeyPress = (event) => {
@@ -56,84 +64,90 @@ const EducationInfo = () => {
         buttonText="Add more education"
         handleClick={handleAddEducation}
       />
-      {educations.map((_, index) => (
-        <form action="" className="education__form form" key={index}>
-          <div>
-            <label
-              htmlFor={`school name-${index}`}
-              className="education__form-label form-label"
-            >
-              School name
-            </label>
-            <input
-              type="text"
-              name="school name"
-              id={`school name-${index}`}
-              className="education__form-input form-input"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`degree-${index}`}
-              className="education__form-label form-label"
-            >
-              Degree, certification or title
-            </label>
-            <input
-              type="text"
-              name="degree"
-              id={`degree-${index}`}
-              className="education__form-input form-input"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`starting date-${index}`}
-              className="education__form-label form-label"
-            >
-              Starting date
-            </label>
-            <input
-              type="text"
-              name="starting date"
-              id={`starting date-${index}`}
-              className="education__form-input form-input"
-              placeholder="MM/YYYY"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`ending date-${index}`}
-              className="education__form-label form-label"
-            >
-              Ending date
-            </label>
-            <input
-              type="text"
-              name="ending date"
-              id={`ending date-${index}`}
-              className="education__form-input form-input"
-              placeholder="MM/YYYY"
-              onChange={(event) => handleInputChange(event, index)}
-              onKeyDown={(event) => handleKeyPress(event)}
-            />
-          </div>
-          {educations.length > 1 && (
-            <button
-              className="education__form-delete-btn delete-btn"
-              onClick={(event) => handleDeleteEducation(event, index)}
-            >
-              <RiDeleteBin5Line />
-            </button>
-          )}
-        </form>
-      ))}
+      {educations.map(
+        ({ schoolName, degree, startingDate, endingDate }, index) => (
+          <form action="" className="education__form form" key={index}>
+            <div>
+              <label
+                htmlFor={`school name-${index}`}
+                className="education__form-label form-label"
+              >
+                School name
+              </label>
+              <input
+                type="text"
+                name="school name"
+                id={`school name-${index}`}
+                value={schoolName || null}
+                className="education__form-input form-input"
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor={`degree-${index}`}
+                className="education__form-label form-label"
+              >
+                Degree, certification or title
+              </label>
+              <input
+                type="text"
+                name="degree"
+                id={`degree-${index}`}
+                value={degree || null}
+                className="education__form-input form-input"
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor={`starting date-${index}`}
+                className="education__form-label form-label"
+              >
+                Starting date
+              </label>
+              <input
+                type="text"
+                name="starting date"
+                id={`starting date-${index}`}
+                value={startingDate || null}
+                className="education__form-input form-input"
+                placeholder="MM/YYYY"
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor={`ending date-${index}`}
+                className="education__form-label form-label"
+              >
+                Ending date
+              </label>
+              <input
+                type="text"
+                name="ending date"
+                id={`ending date-${index}`}
+                value={endingDate || null}
+                className="education__form-input form-input"
+                placeholder="MM/YYYY"
+                onChange={(event) => handleInputChange(event, index)}
+                onKeyDown={(event) => handleKeyPress(event)}
+              />
+            </div>
+            {educations.length > 1 && (
+              <button
+                className="education__form-delete-btn delete-btn"
+                onClick={(event) => handleDeleteEducation(event, index)}
+              >
+                <RiDeleteBin5Line />
+              </button>
+            )}
+          </form>
+        ),
+      )}
     </section>
   );
 };
