@@ -51,7 +51,7 @@ const Interests = () => {
               name="interest"
               className="interests__form-input form-input"
               placeholder="New Interest..."
-              value={interest || null}
+              value={interest}
               onChange={(event) => handleInputChange(event, index)}
               onKeyDown={(event) => handleKeyPress(event)}
             />

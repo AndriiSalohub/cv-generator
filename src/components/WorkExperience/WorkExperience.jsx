@@ -58,7 +58,7 @@ const WorkExperience = () => {
                 type="text"
                 name="position"
                 id={`your position-${index}`}
-                value={position || null}
+                value={position}
                 className="work-experience__form-input form-input"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
@@ -75,7 +75,7 @@ const WorkExperience = () => {
                 type="text"
                 name="company"
                 id={`company-${index}`}
-                value={company || null}
+                value={company}
                 className="work-experience__form-input form-input"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
@@ -92,7 +92,7 @@ const WorkExperience = () => {
                 type="text"
                 name="location"
                 id={`location-${index}`}
-                value={location || null}
+                value={location}
                 className="work-experience__form-input form-input"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
@@ -110,7 +110,7 @@ const WorkExperience = () => {
                   type="text"
                   name="from"
                   id={`from-${index}`}
-                  value={from || null}
+                  value={from}
                   className="work-experience__form-input form-input"
                   placeholder="MM/YYYY"
                   onChange={(event) => handleInputChange(event, index)}
@@ -128,7 +128,7 @@ const WorkExperience = () => {
                   type="text"
                   name="to"
                   id={`to-${index}`}
-                  value={to || null}
+                  value={to}
                   className="work-experience__form-input form-input"
                   placeholder="MM/YYYY"
                   onChange={(event) => handleInputChange(event, index)}
@@ -146,7 +146,7 @@ const WorkExperience = () => {
               name="tasks"
               id={`tasks-${index}`}
               rows="6"
-              value={tasks || null}
+              value={tasks}
               placeholder="Describe your main tasks and responsibilities in this role, as well as any achievements or accomplishments you are particularly proud of. Be specific and use metrics or numbers to quantify your impact whenever possible."
               className="work-experience__form-textarea form-input"
               onChange={(event) => handleInputChange(event, index)}

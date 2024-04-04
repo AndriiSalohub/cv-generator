@@ -139,30 +139,34 @@ const Cv = () => {
           </h3>
           <ul className="cv__main-work-experience-list">
             {workExperience.map(
-              ({ position, company, location, from, to, tasks }, index) => (
-                <li className="cv__main-work-experience-list-item" key={index}>
-                  <h4 className="cv__main-work-experience-list-item-position cv__main-list-item-title">
-                    {position}
-                  </h4>
-                  <h5 className="cv__main-work-experience-list-item-company">
-                    {company}
-                  </h5>
-                  <p className="cv__main-work-experience-list-item-work-info cv__main-list-item-period">
-                    <span>
-                      {from} - {to}
-                    </span>{" "}
-                    <span>{location}</span>
-                  </p>
-                  {tasks !== "" && (
-                    <h6 className="cv__main-work-experience-list-item-achievements">
-                      Achievements / Tasks:
-                    </h6>
-                  )}
-                  <p className="cv__main-work-experience-list-item-achievements-description description">
-                    {tasks}
-                  </p>
-                </li>
-              ),
+              ({ position, company, location, from, to, tasks }, index) =>
+                position && (
+                  <li
+                    className="cv__main-work-experience-list-item"
+                    key={index}
+                  >
+                    <h4 className="cv__main-work-experience-list-item-position cv__main-list-item-title">
+                      {position}
+                    </h4>
+                    <h5 className="cv__main-work-experience-list-item-company">
+                      {company}
+                    </h5>
+                    <p className="cv__main-work-experience-list-item-work-info cv__main-list-item-period">
+                      <span>
+                        {from} - {to}
+                      </span>{" "}
+                      <span>{location}</span>
+                    </p>
+                    {tasks !== "" && (
+                      <h6 className="cv__main-work-experience-list-item-achievements">
+                        Achievements / Tasks:
+                      </h6>
+                    )}
+                    <p className="cv__main-work-experience-list-item-achievements-description description">
+                      {tasks}
+                    </p>
+                  </li>
+                ),
             )}
           </ul>
         </section>
@@ -170,19 +174,20 @@ const Cv = () => {
           <h3 className="cv__main-education-title cv__main-title">Education</h3>
           <ul className="cv__main-education-list">
             {educations.map(
-              ({ schoolName, degree, startingDate, endingDate }, index) => (
-                <li className="cv__main-education-list-item" key={index}>
-                  <h4 className="cv__main-education-list-item-title cv__main-list-item-title">
-                    {schoolName}
-                  </h4>
-                  <h5 className="cv__main-education-list-item-subtitle">
-                    {degree}
-                  </h5>
-                  <p className="cv__main-education-list-item-period cv__main-list-item-period">
-                    {startingDate} - {endingDate}
-                  </p>
-                </li>
-              ),
+              ({ schoolName, degree, startingDate, endingDate }, index) =>
+                schoolName && (
+                  <li className="cv__main-education-list-item" key={index}>
+                    <h4 className="cv__main-education-list-item-title cv__main-list-item-title">
+                      {schoolName}
+                    </h4>
+                    <h5 className="cv__main-education-list-item-subtitle">
+                      {degree}
+                    </h5>
+                    <p className="cv__main-education-list-item-period cv__main-list-item-period">
+                      {startingDate} - {endingDate}
+                    </p>
+                  </li>
+                ),
             )}
           </ul>
         </section>

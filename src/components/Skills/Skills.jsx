@@ -50,7 +50,7 @@ const Skills = () => {
               type="text"
               name="skill"
               className="skills__form-input form-input"
-              value={skill || null}
+              value={skill}
               placeholder="New skill..."
               onChange={(event) => handleInputChange(event, index)}
               onKeyDown={(event) => handleKeyPress(event)}

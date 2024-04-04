@@ -67,7 +67,7 @@ const GeneralInfo = () => {
               type="text"
               name="first name"
               id="first name"
-              value={firstName || null}
+              value={firstName}
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
             />
@@ -84,7 +84,7 @@ const GeneralInfo = () => {
               type="text"
               name="last name"
               id="last name"
-              value={lastName || null}
+              value={lastName}
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
             />
@@ -100,7 +100,7 @@ const GeneralInfo = () => {
           type="text"
           name="profession"
           id="profession"
-          value={profession || null}
+          value={profession}
           placeholder="e.g. Web Developer"
           className="general-info__form-input form-input"
           onChange={(event) => handleInputChange(event)}
@@ -115,7 +115,7 @@ const GeneralInfo = () => {
           type="text"
           name="location"
           id="location"
-          value={location || null}
+          value={location}
           placeholder="e.g. Atlanta Developer"
           className="general-info__form-input form-input"
           onChange={(event) => handleInputChange(event)}
@@ -132,7 +132,7 @@ const GeneralInfo = () => {
               type="text"
               name="linkedIn"
               id="linkedIn"
-              value={linkedIn || null}
+              value={linkedIn}
               placeholder="e.g. andriisalohub"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -149,7 +149,7 @@ const GeneralInfo = () => {
               type="url"
               name="portfolio"
               id="portfolio"
-              value={portfolio || null}
+              value={portfolio}
               placeholder="e.g. https://github.com/AndriiSalohub/"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -166,7 +166,7 @@ const GeneralInfo = () => {
               type="email"
               name="email"
               id="email"
-              value={email || null}
+              value={email}
               placeholder="e.g. example@gmail.com"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -183,7 +183,7 @@ const GeneralInfo = () => {
               type="tel"
               name="phone number"
               id="phone number"
-              value={phoneNumber || null}
+              value={phoneNumber}
               placeholder="e.g. +38 067452 1334"
               className="general-info__form-input form-input"
               onChange={(event) => handleInputChange(event)}
@@ -200,7 +200,7 @@ const GeneralInfo = () => {
           name="description"
           id="description"
           rows="6"
-          value={description || null}
+          value={description}
           placeholder="Tell us about yourself! This is your chance to showcase your skills, experience, and personality. Write a brief summary of who you are and what you can bring to the table."
           className="general-info__form-textarea form-input"
           onChange={(event) => handleInputChange(event)}

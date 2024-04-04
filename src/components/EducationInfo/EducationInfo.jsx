@@ -78,7 +78,7 @@ const EducationInfo = () => {
                 type="text"
                 name="school name"
                 id={`school name-${index}`}
-                value={schoolName || null}
+                value={schoolName}
                 className="education__form-input form-input"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
@@ -95,7 +95,7 @@ const EducationInfo = () => {
                 type="text"
                 name="degree"
                 id={`degree-${index}`}
-                value={degree || null}
+                value={degree}
                 className="education__form-input form-input"
                 onChange={(event) => handleInputChange(event, index)}
                 onKeyDown={(event) => handleKeyPress(event)}
@@ -112,7 +112,7 @@ const EducationInfo = () => {
                 type="text"
                 name="starting date"
                 id={`starting date-${index}`}
-                value={startingDate || null}
+                value={startingDate}
                 className="education__form-input form-input"
                 placeholder="MM/YYYY"
                 onChange={(event) => handleInputChange(event, index)}
@@ -130,7 +130,7 @@ const EducationInfo = () => {
                 type="text"
                 name="ending date"
                 id={`ending date-${index}`}
-                value={endingDate || null}
+                value={endingDate}
                 className="education__form-input form-input"
                 placeholder="MM/YYYY"
                 onChange={(event) => handleInputChange(event, index)}
