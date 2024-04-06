@@ -1,10 +1,10 @@
 import Profile from "../components/Profile/Profile";
-import EducationInfo from "../components/EducationInfo/EducationInfo.jsx";
-import GeneralInfo from "../components/GeneralInfo/GeneralInfo.jsx";
-import Interests from "../components/Interests/Interests.jsx";
-import Languages from "../components/Languages/Languages.jsx";
-import Skills from "../components/Skills/Skills.jsx";
-import WorkExperience from "../components/WorkExperience/WorkExperience.jsx";
+import EducationInfo from "../components/EducationInfo/EducationInfoForm.jsx";
+import GeneralInfo from "../components/GeneralInfo/GeneralInfoForm.jsx";
+import Interests from "../components/Interests/InterestsForm.jsx";
+import Languages from "../components/Languages/LanguagesForm.jsx";
+import Skills from "../components/Skills/SkillsForm.jsx";
+import WorkExperience from "../components/WorkExperience/WorkExperienceForm.jsx";
 
 const Edit = () => {
   return (
