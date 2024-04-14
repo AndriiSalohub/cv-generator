@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
+import FillExampleButton from "../FillExampleButton/FillExampleButton";
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
             <NavLink to="/preview">Preview CV</NavLink>
           </li>
           <li className="header__navigation-item">
-            <button className="header__upload-btn">Fill Example CV</button>
+            <FillExampleButton />
           </li>
         </ul>
       </nav>

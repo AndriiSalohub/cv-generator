@@ -1,0 +1,23 @@
+@import "../../styles/styles.scss";
+
+.fill-example-btn {
+  color: $main-color;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 3px solid $main-color;
+  border-radius: 6px;
+}
+
+@media (hover: hover) {
+  .fill-example-btn:hover {
+    color: white;
+    background-color: $main-color;
+  }
+}
+
+@media (hover: none) {
+  .fill-example-btn:active {
+    color: white;
+    background-color: $main-color;
+  }
+}

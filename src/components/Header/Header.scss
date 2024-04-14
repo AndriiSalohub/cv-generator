@@ -47,35 +47,17 @@
       }
     }
   }
-
-  &__upload-btn {
-    color: $main-color;
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 3px solid $main-color;
-    border-radius: 6px;
-  }
 }
 
 @media (hover: hover) {
   .header__navigation-item a:hover {
     color: $main-color;
   }
-
-  .header__navigation-item button:hover {
-    color: white;
-    background-color: $main-color;
-  }
 }
 
 @media (hover: none) {
   .header__navigation-item a:active {
     color: $main-color;
-  }
-
-  .header__navigation-item button:active {
-    color: white;
-    background-color: $main-color;
   }
 }
 
